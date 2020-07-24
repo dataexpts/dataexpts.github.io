@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=endge, chrome=IE8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no" />
+    <title>A Twitter Analysis of Kuwait's Telecom Operators — data experiments</title>
+    <!--[if lte IE 8]><script type="text/javascript" src="./theme/js/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" type="text/css" href="./theme/css/skeleton.css" />
+    <link rel="stylesheet" type="text/css" href="./theme/css/theme.css" />
+    <link rel="shortcut icon" type="image/png" href="./favicon.png" />
+    <!--[if lte IE 8]><link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" /><![endif]-->
+    <link rel="alternate" type="application/atom+xml"
+                           title="data experiments — Flux Atom"
+                           href="./" /> 
+
+    <meta name="author"   content="fhxd" />
+    <meta name="keywords" content="twitter, data mining, analysis, analytics, ggplot, R, python" />
+    <link rel="stylesheet" media="not print" type="text/css" href="./theme/css/pygments.css" /> 
+  </head>
+  <body>
+    <div id="page">
+      <header id="page-head">
+        <h1>
+          <a href="./index.html">data experiments</a>
+        </h1>
+      </header>
+      
+      <div id="page-body">
+        <article class="post" id="page-main" role="main">
+      <header class="post-header">
+        <h1>
+          <a rel="bookmark"
+             href="./a-twitter-analysis-of-kuwaits-telecom-operators.html"
+             title="Lien permanent vers «A Twitter Analysis of Kuwait's Telecom Operators»">
+             A Twitter Analysis of Kuwait's Telecom Operators
+          </a>
+        </h1>
+        <div class="meta">
+<!-- includes/article_meta.html -->
+            Le <time datetime="2020-07-24T00:00:00+03:00">Fri 24 July 2020</time>
+            dans «<a href="./category/articles.html">articles</a>» 
+            par <a href="./author/fhxd.html">fhxd</a>              <br />Mots-clés:              <a rel="tag" href="./tag/twitter.html">twitter</a>,               <a rel="tag" href="./tag/data-mining.html">data mining</a>,               <a rel="tag" href="./tag/analysis.html">analysis</a>,               <a rel="tag" href="./tag/analytics.html">analytics</a>,               <a rel="tag" href="./tag/ggplot.html">ggplot</a>,               <a rel="tag" href="./tag/r.html">R</a>,               <a rel="tag" href="./tag/python.html">python</a>        </div>
+      </header>
+      <div class="post-content"> 
+        <p>The purpose of this analysis is to look at the behavior of the 3 Kuwait-based telecommunications operators (Zain, STC, and Ooredoo) on Twitter over a 6 month period from January 2020 through to June 2020. 
+All information is publicly available on Twitter.<br/><strong>If a plot is too small you can right click -&gt; view image.</strong>
+<br/><br/></p>
+<h2>Number of Tweets</h2>
+<p><strong>@zainkuwait</strong>   &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  14204<br/>
+<strong>@stc_kwt </strong>   &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp;  12202<br/>
+<strong>@ooredookuwait </strong>        &nbsp;1344</br></p>
+<p>It is evident that Ooredoo is the least active on Twitter out of the 3.<br/><br/></p>
+<h2>Word Clouds</h2>
+<p>Below is the word cloud for all 3 telecom operators. We can see a clear difference between all 3:</p>
+<p><center><h3>ZAIN</h3></center></p>
+<p><img src="./articles/images/wc_zainkuwait.png"  width=100%></p>
+<p>​   </p>
+<p><center><h3>STC</h3></center></p>
+<p><img src="./articles/images/wc_stc_kwt.png" width=100%></p>
+<p>​   </p>
+<p><center><h3>OOREDOO</h3></center></p>
+<p><img src="./articles/images/wc_ooredookuwait.png" width=100%></p>
+<ul>
+<li>Zain and STC have the most interactions with customers.<ul>
+<li>Typical customer service keywords are the most common (a higher percentage than Ooredoo).</li>
+</ul>
+</li>
+<li>Ooredoo also has a lot of interactions with their customers. However, their pushing and marketing of their offers is of a higher percentage than Zain or STC.<ul>
+<li>We know this because a lot of the prominent 'words' are numbers, signifying that they are tweeting about prices of their offers. </li>
+</ul>
+</li>
+<li>Typical offer keywords are more prominent: 5g, wifi, huwaei, etc..<br/><br/></li>
+</ul>
+<h2>Tweet Behavior Analysis</h2>
+<p>We will explore the daily tweet behavior of each operator.</p>
+<h3>Number of Tweets per Day</h3>
+<p><img src='./articles/images/no_tweets_perday.png' width=100%></p>
+<p>Zain and STC are showing similar tweeting behaviors in tweet volumes per day as well especially starting from the beginning of April 2020. Ooredoo lags behind in comparison. </p>
+<ul>
+<li>
+<p>Zain has spikes on 2 days where the volume of tweets were abnormally high.</p>
+</li>
+<li>
+<p>First spike is at the end of January where there were some network issues</p>
+</li>
+<li>
+<p>Second spike is on March 23<sup>rd</sup> where a decision was announced by all operators that calls will be free until April 20<sup>th</sup>.</p>
+</li>
+</ul>
+<p>Below is the same chart with the number of tweets being scaled to log<sub>10</sub> to have a clearer comparison of the volume of tweets with Ooredoo.</p>
+<p><img src="./articles/images/no_tweets_perday_log10.png" width=100% /> </p>
+<h3>Hourly Tweet Trends</h3>
+<p>Hourly volume of tweets over 6 months</p>
+<p><img src="./articles/images/total_tweets_hrly.png"  width=100% /></p>
+<p>Zain and STC are showing similar tweeting trends in the highlighted section above. 
+Below is a similar graph segmented into months.</p>
+<p><img src="./articles/images/total_tweets_periods_monthly_perhour_facet.png" width=100%;" /></p>
+<h3>Periodic Tweets Throughout the Day: Monthly View</h3>
+<p><img src="./articles/images/total_tweets_periods_monthly_facet.png" width=100% /></p>
+<p>The highest volume of tweets were during the corona virus lock-down period which started in March 2020 and was gradually lifted in June. The definition of the periods shown in the graph above (hours listed are inclusive):</p>
+<ul>
+<li>Early morning: 7 AM - 9:59 AM</li>
+<li>Late morning: 10 AM -12:59 PM</li>
+<li>Early afternoon: 1 PM - 3:59 PM</li>
+<li>Late afternoon: 4 PM - 6:59 PM</li>
+<li>Early night: 7 PM - 9:59 PM</li>
+<li>Late night: 10 PM - 12:59 AM</li>
+<li>Early AM: 1 AM - 3:59 AM</li>
+<li>Late AM: 4 AM - 6:59 AM</li>
+</ul>
+<h2>Customer Interactions</h2>
+<p>A customer interaction is defined by any interaction with a customer or potential customer whether it is a complaint, feedback, query etc. 
+The below plots show which telecom operator had the most interactions with their audiences.</p>
+<p><img src="./articles/images/total_tweets_perctotal.png" width=100% /></p>
+<p><img src="./articles/images/total_tweets_perctelco.png" width=100% /></p>
+<p>These plots support what we saw at the beginning of the analysis with the word clouds: and that is that STC and Zain have a higher percentage of interaction with their audiences vs Ooredoo, who's tweets are more focused on marketing their offers and products.</p>
+      </div>
+      <footer class="post-footer">
+        <div class="meta">
+            Posté dans «<a href="./category/articles.html">articles</a>» 
+            par <a href="./author/fhxd.html">fhxd</a><br />
+            Mots-clés:  #<a href="./tag/twitter.html">twitter</a> #<a href="./tag/data-mining.html">data mining</a> #<a href="./tag/analysis.html">analysis</a> #<a href="./tag/analytics.html">analytics</a> #<a href="./tag/ggplot.html">ggplot</a> #<a href="./tag/r.html">R</a> #<a href="./tag/python.html">python</a>        </div>
+      </footer>
+      </article> <!-- /#page-main -->
+
+        <aside id="page-side">
+          <!-- begin includes/sidebar.html -->
+          <nav>
+            <h3>Pages</h3>
+            <ul>
+              <li><a href=".">Accueil</a></li>
+              <li><a href="./categories.html">Catégories</a></li>
+              <li><a href="./archives.html">Archives</a></li>
+              <li><a href="./tags.html">Mots-clés</a></li>
+            </ul>
+          </nav>
+
+          <nav>
+            <h3>Catégories</h3>
+            <ul>
+              <li class="active"><a href="./category/articles.html">articles</a></li>
+            </ul>
+          </nav>
+
+          <nav>
+            <h3>Liens</h3>
+            <ul>
+              <li><a href="#">You can add links in your config file</a></li>
+              <li><a href="#">Another social link</a></li>
+              <li><a href="http://getpelican.com/">Pelican</a></li>
+              <li><a href="http://python.org/">Python.org</a></li>
+              <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+              <li><a href="#">You can modify those links in your config file</a></li>
+            </ul>
+          </nav>
+          <!-- end includes/sidebar.html --></aside> <!-- /#page-side -->
+      </div>  <!-- /#page-body -->
+
+      <footer id="page-foot">
+        <p> Powered by <a href="http://pelican.readthedocs.org">Pelican</a></p>
+      </footer>
+    </div> <!-- /#page -->
+  </body>
+</html>
